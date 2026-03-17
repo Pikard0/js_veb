@@ -54,7 +54,6 @@ function task3() {
 }
 
 function task4() {
-    console.log("\n--- Завдання 4 ---");
     let students = [
         { name: "Олексій", age: 20, course: 2 },
         { name: "Ірина", age: 21, course: 3 },
@@ -75,7 +74,6 @@ function task4() {
 }
 
 function task5() {
-    console.log("\n--- Завдання 5 ---");
     let numbers = [1, 2, 3, 4, 5, 6];
 
     let squared = numbers.map(num => num ** 2);
@@ -87,7 +85,7 @@ function task5() {
     let sum = numbers.reduce((acc, curr) => acc + curr, 0);
     console.log("3. Сума масиву:", sum);
 
-    let extraNumbers = [7, 8, 9, 10, 11];
+    let extraNumbers = [6, 7, 8, 9, 10, 11];
     let combined = numbers.concat(extraNumbers);
     console.log("4. Об'єднаний масив:", combined);
 
