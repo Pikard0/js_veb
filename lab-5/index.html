@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЛР 5</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; max-width: 600px; margin: auto; }
+        section { border: 1px solid #ccc; padding: 15px; margin-bottom: 20px; }
+        #bulb { width: 100px; height: 100px; border-radius: 50%; margin: 10px 0; transition: 0.3s; }
+        .bulb-off { background-color: #555; }
+        .bulb-on { background-color: #ffeb3b; box-shadow: 0 0 30px #ffeb3b; }
+        .traffic-light { background: #222; width: 60px; padding: 10px; border-radius: 10px; margin: 10px 0; }
+        .light { width: 40px; height: 40px; border-radius: 50%; background-color: #555; margin: 5px auto; transition: 0.3s; }
+        .light-red { background-color: #f33; box-shadow: 0 0 20px #f33; }
+        .light-yellow { background-color: #fc0; box-shadow: 0 0 20px #fc0; }
+        .light-green { background-color: #3c3; box-shadow: 0 0 20px #3c3; }
+        .clock { font-size: 24px; font-weight: bold; font-family: monospace; }
+        input, button { margin: 5px 0; padding: 5px; }
+    </style>
+    <script src="index.js" defer></script>
+</head>
+<body>
+
+<section>
+    <h2>Завдання 1</h2>
+    <div id="bulb" class="bulb-off"></div>
+    <button onclick="task1.toggle()">Вкл/Викл</button>
+    <button onclick="task1.setType('звичайна')">Звичайна</button>
+    <button onclick="task1.setType('світлодіодна')">Світлодіодна</button>
+    <button onclick="task1.setBrightness()">Яскравість</button>
+</section>
+
+<section>
+    <h2>Завдання 2</h2>
+    <div class="traffic-light">
+        <div id="tl-red" class="light"></div>
+        <div id="tl-yellow" class="light"></div>
+        <div id="tl-green" class="light"></div>
+    </div>
+    <button onclick="task2.startTrafficLight()">Старт</button>
+    <button onclick="task2.manualNext()">Наступний</button>
+    <button onclick="task2.setDurations()">Таймінги</button>
+</section>
+
+<section>
+    <h2>Завдання 3</h2>
+    <div id="clock" class="clock">00:00:00</div>
+    <input type="datetime-local" id="timer-in">
+    <button onclick="task3.startCountdown(document.getElementById('timer-in').value, 'timer-out')">Таймер</button>
+    <div id="timer-out" class="clock">---</div>
+    <input type="date" id="bday-in">
+    <button onclick="task3.calculateBirthday(document.getElementById('bday-in').value)">ДР</button>
+</section>
+
+<section>
+    <h2>Завдання 4</h2>
+    <button onclick="runTask4Demo()">Тест Магазину</button>
+</section>
+
+</body>
+</html>
