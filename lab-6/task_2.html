@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна 6 - Список завдань</title>
+    <link rel="stylesheet" href="style_2.css">
+</head>
+<body>
+<div class="app-container">
+    <header class="header">
+        <h1>Мій список завдань</h1>
+    </header>
+
+    <main>
+        <form id="todoForm" class="todo-form">
+            <input type="text" id="taskInput" required minlength="3" placeholder="Що потрібно зробити?" autocomplete="off">
+            <button type="submit" class="btn primary-btn">Додати</button>
+        </form>
+
+        <div class="sorting-controls">
+            <p class="sort-title">Сортувати:</p>
+            <div class="sort-buttons">
+                <button class="btn sort-btn" data-sort="created">За датою додавання</button>
+                <button class="btn sort-btn" data-sort="status">За станом</button>
+                <button class="btn sort-btn" data-sort="updated">За датою оновлення</button>
+                <button class="btn reset-btn" id="resetSortBtn">Скинути</button>
+            </div>
+        </div>
+
+        <ul id="taskList" class="task-list"></ul>
+
+        <div id="emptyMessage" class="empty-message hidden">
+            У вас ще немає завдань. Додайте перше!
+        </div>
+    </main>
+</div>
+
+<script src="lab-6_2.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+:root {
+    --primary-color: #4CAF50;
+    --primary-hover: #45a049;
+    --danger-color: #f44336;
+    --edit-color: #ff9800;
+    --bg-color: #f4f4f9;
+    --card-bg: #ffffff;
+    --text-color: #333;
+    --text-muted: #888;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+body { background-color: var(--bg-color); color: var(--text-color); display: flex; justify-content: center; padding: 2rem 1rem; }
+
+.app-container { width: 100%; max-width: 600px; background: var(--card-bg); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+.header h1 { text-align: center; margin-bottom: 1.5rem; color: #222; }
+
+/* формочки */
+.todo-form { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
+.todo-form input { flex: 1; padding: 0.75rem; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; transition: border-color 0.3s; }
+.todo-form input:focus { outline: none; border-color: var(--primary-color); }
+
+/* батонИ */
+.btn { padding: 0.75rem 1rem; border: none; border-radius: 6px; cursor: pointer; color: white; font-size: 0.9rem; transition: background 0.3s, transform 0.1s; }
+.btn:active { transform: scale(0.97); }
+.primary-btn { background: var(--primary-color); }
+.primary-btn:hover { background: var(--primary-hover); }
+.danger-btn { background: var(--danger-color); padding: 0.5rem 0.75rem; }
+.edit-btn { background: var(--edit-color); padding: 0.5rem 0.75rem; }
+.icon-btn { background: none; border: none; cursor: pointer; font-size: 1.2rem; }
+
+/* кнопочки сортування */
+.sorting-controls { background: #f9f9f9; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; }
+.sort-title { font-size: 0.9rem; font-weight: bold; margin-bottom: 0.5rem; color: var(--text-muted); }
+.sort-buttons { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.sort-btn { background: #e0e0e0; color: #333; flex: 1; min-width: 120px; }
+.sort-btn:hover { background: #d0d0d0; }
+.reset-btn { background: #ffebee; color: #c62828; }
+
+/* список, анімації */
+.task-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+.empty-message { text-align: center; color: var(--text-muted); font-style: italic; margin-top: 2rem; }
+.hidden { display: none; }
+
+@keyframes slideIn { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes slideOut { from { opacity: 1; transform: translateX(0); } to { opacity: 0; transform: translateX(20px); } }
+
+.task-item { display: flex; align-items: center; justify-content: space-between; padding: 1rem; background: #fff; border: 1px solid #eee; border-radius: 8px; animation: slideIn 0.3s ease-out; transition: box-shadow 0.3s; }
+.task-item:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+.task-item.removing { animation: slideOut 0.3s ease-in forwards; }
+
+/* стан завдань */
+.task-content { display: flex; align-items: center; gap: 1rem; flex: 1; overflow: hidden; }
+.task-checkbox { width: 20px; height: 20px; cursor: pointer; accent-color: var(--primary-color); }
+.task-text { flex: 1; font-size: 1.05rem; word-break: break-word; transition: color 0.3s; }
+
+/* виконані завданя */
+.task-item.completed { background: #fdfdfd; border-color: #e8f5e9; }
+.task-item.completed .task-text { text-decoration: line-through; color: var(--text-muted); }
+
+/* Inline */
+.edit-input { flex: 1; padding: 0.5rem; font-size: 1rem; border: 2px solid var(--edit-color); border-radius: 4px; outline: none; }
+.task-actions { display: flex; gap: 0.5rem; }
+
+@media (max-width: 480px) { .task-item { flex-direction: column; align-items: stretch; gap: 1rem; } .task-actions { justify-content: flex-end; } }
