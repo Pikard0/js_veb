@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Task_3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="kanban">
+    <div class="column">
+        <div class="column-header todo-header">To do</div>
+        <div class="task-list" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="task-card" draggable="true" ondragstart="drag(event)" id="task9">Item #9</div>
+            <div class="task-card" draggable="true" ondragstart="drag(event)" id="task3">Item #3</div>
+            <div class="task-card" draggable="true" ondragstart="drag(event)" id="task5">Item #5</div>
+            <div class="task-card" draggable="true" ondragstart="drag(event)" id="task4">Item #4</div>
+            <div class="task-card" draggable="true" ondragstart="drag(event)" id="task10">Item #10</div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="column-header working-header">Working</div>
+        <div class="task-list" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="task-card" draggable="true" ondragstart="drag(event)" id="task6">Item #6</div>
+            <div class="task-card" draggable="true" ondragstart="drag(event)" id="task8">Item #8</div>
+            <div class="task-card" draggable="true" ondragstart="drag(event)" id="task7">Item #7</div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="column-header done-header">Done</div>
+        <div class="task-list" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="task-card" draggable="true" ondragstart="drag(event)" id="task11">Item #11</div>
+            <div class="task-card" draggable="true" ondragstart="drag(event)" id="task2">Item #2</div>
+            <div class="task-card" draggable="true" ondragstart="drag(event)" id="task13">Item #13</div>
+            <div class="task-card" draggable="true" ondragstart="drag(event)" id="task14">Item #14</div>
+            <div class="task-card" draggable="true" ondragstart="drag(event)" id="task15">Item #15</div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

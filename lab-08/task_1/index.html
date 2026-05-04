@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task_1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section id="settings-view" class="screen">
+    <h1>Налаштування гри</h1>
+    <div class="form-container">
+        <div class="field">
+            <label>Розмір поля:</label>
+            <select id="grid-size">
+                <option value="16">4 x 4 (16 карток)</option>
+                <option value="20">4 x 5 (20 карток)</option>
+                <option value="24">4 x 6 (24 карток)</option>
+                <option value="36">6 x 6 (36 карток)</option>
+            </select>
+        </div>
+        <div class="field">
+            <label>Складність:</label>
+            <select id="difficulty">
+                <option value="easy">Easy (3 хв)</option>
+                <option value="normal">Normal (2 хв)</option>
+                <option value="hard">Hard (1 хв)</option>
+            </select>
+        </div>
+        <div class="field">
+            <label>Режим гри:</label>
+            <select id="mode">
+                <option value="1">1 гравець</option>
+                <option value="2">2 гравці</option>
+            </select>
+        </div>
+        <div class="field">
+            <label>Ім'я гравця 1:</label>
+            <input type="text" id="p1-name" value="Гравець 1">
+        </div>
+        <div id="p2-field" class="field hidden">
+            <label>Ім'я гравця 2:</label>
+            <input type="text" id="p2-name" value="Гравець 2">
+        </div>
+        <div class="field">
+            <label>Кількість раундів:</label>
+            <input type="number" id="rounds-count" value="1" min="1">
+        </div>
+    </div>
+    <div class="actions">
+        <button id="btn-reset">Скинути налаштування</button>
+        <button id="btn-start" class="primary">Розпочати гру</button>
+    </div>
+</section>
+
+<section id="game-view" class="screen hidden">
+    <div class="stats-bar">
+        <div id="stat-round"></div>
+        <div id="stat-timer"></div>
+        <div id="stat-turn"></div>
+    </div>
+    <div id="game-board" class="board"></div>
+    <div class="actions">
+        <button id="btn-restart">Рестарт раунду</button>
+        <button id="btn-quit">Вийти в меню</button>
+    </div>
+</section>
+
+<section id="results-view" class="screen hidden">
+    <h1>Кінець гри</h1>
+    <h2 id="final-winner"></h2>
+    <div id="final-stats"></div>
+    <div class="actions">
+        <button id="btn-new-game" class="primary">Нова гра</button>
+    </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

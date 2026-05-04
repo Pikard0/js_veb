@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task_2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Адаптивна Карусель</h2>
+    <div id="my-slider"></div>
+</div>
+
+<script src="script.js"></script>
+<script>
+    const carousel = new Slider('#my-slider', {
+        images: [
+            { src: 'https://picsum.photos/id/10/800/400', alt: 'Nature', caption: 'Slide 1: Природа' },
+            { src: 'https://picsum.photos/id/20/800/400', alt: 'Tech', caption: 'Slide 2: Технології' },
+            { src: 'https://picsum.photos/id/30/800/400', alt: 'Cap', caption: 'Slide 3: Кружка' },
+            { src: 'https://picsum.photos/id/40/800/400', alt: 'Cat', caption: 'Slide 4: Кіт' }
+        ],
+        duration: 600,
+        autoplay: true,
+        autoplayDelay: 3000,
+        showArrows: true,
+        showDots: true
+    });
+</script>
+</body>
+</html>
