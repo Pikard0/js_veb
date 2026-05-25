@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Friend Finder | ЛР 10</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="authScreen" class="auth-screen">
+    <section class="form-panel" aria-labelledby="page-title">
+      <div class="panel-heading">
+        <p class="kicker">Лабораторна робота 9</p>
+        <h1 id="page-title">Форми користувача</h1>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Форми">
+        <button class="tab-button active" type="button" role="tab" aria-selected="true" aria-controls="login-panel" id="login-tab" data-tab="login">Авторизація</button>
+        <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="register-panel" id="register-tab" data-tab="register">Реєстрація</button>
+      </div>
+
+      <p class="status-message" id="status-message" aria-live="polite"></p>
+
+      <form class="user-form active" id="login-form" data-form="login" aria-labelledby="login-tab" novalidate>
+        <div class="field">
+          <label for="login-username">Username</label>
+          <input id="login-username" name="username" type="text" autocomplete="username" placeholder="your_login">
+          <small class="error-message"></small>
+        </div>
+
+        <div class="field">
+          <label for="login-password">Password</label>
+          <div class="password-box">
+            <input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="••••••">
+            <button class="toggle-password" type="button" aria-label="Показати пароль" title="Показати пароль"></button>
+          </div>
+          <small class="error-message"></small>
+        </div>
+
+        <label class="check-row">
+          <input name="remember" type="checkbox" value="true">
+          <span>Remember Me</span>
+        </label>
+
+        <button class="submit-button" type="submit">Увійти</button>
+      </form>
+
+      <form class="user-form" id="register-form" data-form="register" aria-labelledby="register-tab" novalidate>
+        <div class="two-columns">
+          <div class="field">
+            <label for="first-name">First Name</label>
+            <input id="first-name" name="firstName" type="text" autocomplete="given-name" placeholder="Олена">
+            <small class="error-message"></small>
+          </div>
+
+          <div class="field">
+            <label for="last-name">Last Name</label>
+            <input id="last-name" name="lastName" type="text" autocomplete="family-name" placeholder="Коваленко">
+            <small class="error-message"></small>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="name@example.com">
+          <small class="error-message"></small>
+        </div>
+
+        <div class="two-columns">
+          <div class="field">
+            <label for="password">Password</label>
+            <div class="password-box">
+              <input id="password" name="password" type="password" autocomplete="new-password" placeholder="••••••">
+              <button class="toggle-password" type="button" aria-label="Показати пароль" title="Показати пароль"></button>
+            </div>
+            <small class="error-message"></small>
+          </div>
+
+          <div class="field">
+            <label for="confirm-password">Confirm password</label>
+            <div class="password-box">
+              <input id="confirm-password" name="confirmPassword" type="password" autocomplete="new-password" placeholder="••••••">
+              <button class="toggle-password" type="button" aria-label="Показати пароль" title="Показати пароль"></button>
+            </div>
+            <small class="error-message"></small>
+          </div>
+        </div>
+
+        <div class="two-columns">
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+380671234567">
+            <small class="error-message"></small>
+          </div>
+
+          <div class="field">
+            <label for="birth-date">Date Birth</label>
+            <input id="birth-date" name="birthDate" type="date">
+            <small class="error-message"></small>
+          </div>
+        </div>
+
+        <fieldset class="field radio-field">
+          <legend>Sex</legend>
+          <label class="radio-card">
+            <input name="sex" type="radio" value="male">
+            <span>Male</span>
+          </label>
+          <label class="radio-card">
+            <input name="sex" type="radio" value="female">
+            <span>Female</span>
+          </label>
+          <small class="error-message"></small>
+        </fieldset>
+
+        <div class="two-columns">
+          <div class="field">
+            <label for="country">Country</label>
+            <select id="country" name="country">
+              <option value="">Оберіть країну</option>
+              <option value="ukraine">Україна</option>
+              <option value="poland">Польща</option>
+              <option value="germany">Німеччина</option>
+            </select>
+            <small class="error-message"></small>
+          </div>
+
+          <div class="field">
+            <label for="city">City</label>
+            <select id="city" name="city" disabled>
+              <option value="">Спочатку оберіть країну</option>
+            </select>
+            <small class="error-message"></small>
+          </div>
+        </div>
+
+        <button class="submit-button" type="submit">Зареєструватися</button>
+      </form>
+    </section>
+  </main>
+
+  <main id="appShell" class="app app-shell">
+    <header class="topbar">
+      <div class="brand" aria-label="Friend Finder">
+        <span class="brand-mark">FF</span>
+        <span>Friend Finder</span>
+      </div>
+      <div class="user-actions">
+        <span id="currentUser"></span>
+        <button id="logoutButton" class="ghost-button" type="button" title="Вийти з акаунта">
+          <span aria-hidden="true">↪</span>
+          Вийти
+        </button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h1>Пошук друзів у соціальній мережі</h1>
+        <p>Картки генеруються через Random User API, а пошук, фільтри, сортування, пагінація та вибрані друзі працюють без перезавантаження сторінки.</p>
+      </div>
+      <div class="stats" aria-label="Статистика">
+        <div class="stat">
+          <strong id="totalCount">0</strong>
+          <span>завантажено</span>
+        </div>
+        <div class="stat">
+          <strong id="visibleCount">0</strong>
+          <span>знайдено</span>
+        </div>
+        <div class="stat">
+          <strong id="selectedCount">0</strong>
+          <span>обрано</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="toolbar" aria-label="Пошук та фільтри">
+      <div class="toolbar-row">
+        <label class="field">
+          <span>Пошук</span>
+          <input id="searchInput" class="input" type="search" placeholder="Ім'я, прізвище, місто або email">
+        </label>
+        <label class="field">
+          <span>Сортування</span>
+          <select id="sortSelect" class="select">
+            <option value="name-asc">Ім'я A-Z</option>
+            <option value="name-desc">Ім'я Z-A</option>
+            <option value="age-asc">Вік ↑</option>
+            <option value="age-desc">Вік ↓</option>
+            <option value="registered-desc">Реєстрація: нові</option>
+            <option value="registered-asc">Реєстрація: старі</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Мін. вік</span>
+          <input id="minAgeInput" class="input" type="number" min="18" max="99" placeholder="18">
+        </label>
+        <label class="field">
+          <span>Макс. вік</span>
+          <input id="maxAgeInput" class="input" type="number" min="18" max="99" placeholder="99">
+        </label>
+        <label class="field">
+          <span>Рік народження</span>
+          <input id="birthYearInput" class="input" type="number" min="1920" max="2010" placeholder="1994">
+        </label>
+      </div>
+
+      <div class="toolbar-row">
+        <label class="field">
+          <span>Локація</span>
+          <input id="locationInput" class="input" type="text" placeholder="Місто або країна">
+        </label>
+        <label class="field">
+          <span>Email</span>
+          <input id="emailInput" class="input" type="text" placeholder="@example.com">
+        </label>
+        <div class="field">
+          <span>Швидкі фільтри</span>
+          <div class="toolbar-actions">
+            <button id="selectedOnlyButton" class="chip" type="button">♡ Обрані</button>
+            <button id="clearFiltersButton" class="chip" type="button">Очистити</button>
+            <button id="reloadButton" class="chip" type="button">↻ Оновити</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="status-line" aria-live="polite">
+      <span id="activeFilters">Фільтри не застосовані</span>
+      <span id="activePages">Сторінка 1</span>
+    </section>
+
+    <div id="messageBox"></div>
+    <section id="cards" class="cards" aria-label="Список друзів"></section>
+    <nav id="pagination" class="pagination" aria-label="Пагінація"></nav>
+    <div id="loader" class="loader hidden">Завантаження друзів...</div>
+    <div id="sentinel" class="load-sentinel" aria-hidden="true"></div>
+  </main>
+
+  <div id="toast" class="toast hidden" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
